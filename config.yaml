@@ -13,23 +13,36 @@ proxy-providers:
     url:
     path: ./yunanyun.yaml
     proxy: DIRECT
+    interval: 3600
     health-check:
       enable: true
       url: https://www.gstatic.com/generate_204
-      interval: 1800
+      interval: 300
+  fastlink:
+    type: http
+    url:
+    path: ./fastlink.yaml
+    proxy: DIRECT
+    interval: 3600
+    health-check:
+      enable: true
+      url: https://www.gstatic.com/generate_204
+      interval: 300
 proxy-groups:
   - name: PROXY
     type: select
     use:
       - yunanyun
+      - fastlink
     proxies:
       - ⭐️ Auto
   - name: ⭐️ Auto
     type: url-test
     use:
       - yunanyun
+      - fastlink
     url: https://www.gstatic.com/generate_204
-    interval: 600
+    interval: 300
 rule-providers:
   myapp:
     type: http
