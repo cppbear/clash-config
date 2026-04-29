@@ -207,7 +207,7 @@ dns:
   nameserver-policy:
     +.nju.edu.cn:
       - https://doh.pub/dns-query
-      - dns.nju.edu.cn
+      - 210.28.129.251
     .ts.net: 100.100.100.100
   prefer-h3: false
   proxy-server-nameserver:
